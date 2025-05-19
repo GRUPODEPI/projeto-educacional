@@ -20,10 +20,6 @@
             background-position: top left, center center;
             background-size: auto, cover;
             padding: 40px;
-            padding-bottom: 60px; /* Espaço para o rodapé */
-            box-sizing: border-box;
-            overflow-y: auto;
-            margin-bottom: 0; /* Removi a margem inferior do body para o layout padrão */
         }
 
         .container-inicial {
@@ -35,7 +31,6 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             width: 550px;
             transition: margin-top 0.5s ease;
-            margin-bottom: 20px; /* Adicionei margem inferior para separação */
         }
 
         h1 {
@@ -76,12 +71,10 @@
             margin-top: 20px;
             text-align: center;
             display: none;
-            width: 800px; /* Largura para telas maiores */
-            max-width: none;
         }
 
         iframe {
-            width: 100%;
+            width: 800px;
             height: 600px;
             border: 0;
         }
@@ -153,8 +146,8 @@
             width: auto; /* Permite que a largura se ajuste ao conteúdo até o max-width */
             top: 60px; /* Aumentando o valor de top para descer o texto (ajuste conforme necessário) */
             max-width: 350px; /* Aumentando um pouco a largura máxima (ajuste conforme necessário) */
-            opacity: 1; /* Define a opacidade para totalmente visível (sólida) */
-            color: #006400; /* Adiciona a cor azul */
+			opacity: 1; /* Define a opacidade para totalmente visível (sólida) */
+			color: #006400; /* Adiciona a cor azul */
         }
 
         #personagensLadoDireito {
@@ -167,29 +160,29 @@
 
         #personagensLadoDireito img {
             width: auto !important; /* A largura se ajustará proporcionalmente à altura */
-            height: 80px !important; /* Defina uma altura comum (ajuste este valor) */
-            margin-left: 5px !important;
+            height: 200px !important; /* Defina uma altura comum (ajuste este valor) */
+            margin-left: 10px !important;
             margin-right: 0px !important;
             margin-top: 0px !important;
             margin-bottom: 0px !important;
         }
-
-        .video-central {
-            max-width: 600px; /* Ajuste conforme o tamanho desejado do vídeo */
-            height: auto;
-            display: block;
-            margin: 10px auto; /* Espaço acima e abaixo e centralização horizontal */
-        }
+		
+		.video-central {
+        max-width: 600px; /* Ajuste conforme o tamanho desejado do vídeo */
+        height: auto;
+        display: block;
+        margin: 10px auto; /* Espaço acima e abaixo e centralização horizontal */
+    }
         #jogoContainer {
             margin-top: 20px;
             text-align: center;
             display: none; /* Inicialmente escondido */
         }
-
-        footer {
+		
+		footer {
             background-color: #e0f0ff; /* Um cinza bem claro */
             color: #ff1493; /* Um cinza um pouco mais escuro para o texto */
-            padding: 15px; /* Reduzi o padding vertical do rodapé */
+            padding: 20px;
             text-align: center;
             font-size: 0.9em;
             position: fixed;
@@ -198,152 +191,40 @@
             width: 100%; /* Garante que o rodapé ocupe toda a largura */
             z-index: 100; /* Garante que o rodapé fique acima de outros elementos, se necessário */
             border-top: 1px solid #eee; /* Uma linha sutil na parte superior */
-            height: auto; /* Garante que a altura se ajuste ao conteúdo */
-            min-height: 20px; /* Defini uma altura mínima menor */
-            line-height: 20px; /* Tentei manter o line-height menor */
-            display: flex;
-            justify-content: center; /* Centraliza horizontalmente o conteúdo (se houver mais de um item) */
-            align-items: center; /* Centraliza verticalmente o conteúdo */
+			height: 20px; /* Defina uma altura fixa menor (experimente valores) */
+			line-height: 20px; /* Centraliza verticalmente o texto dentro da altura definida */
+			display: flex;
+			justify-content: center; /* Centraliza horizontalmente o conteúdo (se houver mais de um item) */
+			align-items: center; /* Centraliza verticalmente o conteúdo */
         }
-
-        .footer-content {
-            width: 90%;
-            max-width: 600px;
-        }
-
-        /* Media Query para telas menores (até 768px) */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-                padding-bottom: 60px; /* Espaço para o rodapé em telas menores */
-                min-height: auto; /* A altura se ajusta ao conteúdo */
-                flex-direction: column; /* Organiza os elementos em coluna */
-                align-items: stretch; /* Estende os elementos para ocupar a largura */
-            }
-
-            .container-inicial {
-                width: 90%;
-                max-width: none; /* Remove a largura máxima */
-                margin-bottom: 20px;
-            }
-
-            .texto-lateral {
-                position: relative; /* Fluxo normal na página */
-                top: auto;
-                left: auto;
-                right: auto;
-                width: 90%;
-                max-width: none; /* Remove a largura máxima */
-                height: auto;
-                padding: 15px;
-                margin-bottom: 20px;
-            }
-
-            #textoEsquerda {
-                left: auto;
-            }
-
-            #textoDireita {
-                right: auto;
-            }
-
-            .mensagem-lateral {
-                position: relative; /* Fluxo normal na página */
-                top: auto;
-                left: auto;
-                max-width: 90%;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-
-            #personagensLadoDireito {
-                position: relative; /* Fluxo normal na página */
-                top: auto;
-                right: auto;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-                margin-bottom: 20px;
-                flex-wrap: wrap; /* Permite que as imagens quebrem para caber */
-            }
-
-            #personagensLadoDireito img {
-                height: 60px !important;
-                margin-left: 0 !important;
-            }
-
-            .video-central {
-                max-width: 90%;
-                margin: 20px auto;
-            }
-
-            #jogoContainer {
-                width: 95%;
-                max-width: none; /* Remove a largura máxima */
-            }
-
-            iframe {
-                height: auto;
-                aspect-ratio: 800 / 600; /* Mantém a proporção */
-            }
-
-            footer {
-                position: static; /* Rodapé estático em telas menores */
-                margin-top: 20px;
-            }
-        }
-
-        /* Media Query para telas ainda menores (celulares) */
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .jogo-button {
-                font-size: 1em;
-                padding: 8px 15px;
-            }
-
-            .texto-lateral h3 {
-                font-size: 1.2em;
-            }
-
-            .texto-lateral p {
-                font-size: 0.9em;
-            }
-
-            .mensagem-lateral {
-                font-size: 0.9em;
-            }
-        }
+    </style>
     </style>
 </head>
 <body>
     <div class="texto-lateral" id="textoEsquerda">
-        <h3>Sobre o Nosso Projeto Educacional</h3>
-        <p>Este é um espaço dedicado ao aprendizado divertido através de jogos interativos.<br>
-        Nosso projeto visa oferecer uma experiência envolvente, estimulando o raciocínio e a criatividade de nossos jogadores.</p>
-        <p>Estamos comprometidos em criar um ambiente seguro e inspirador, onde a experimentação é encorajada
-        e o aprendizado acontece de forma natural e agradável.</p>
-        <p>Aqui você encontrará jogos como "Balé das Letras", uma aventura no mundo das palavras, e "Vamos Estudar", com desafios matemáticos envolventes, criados com a mágica da plataforma Scratch para complementar a jornada de aprendizado no Ensino Médio.</p>
-        <p>Explore os jogos e descubra novas formas de aprender!</p>
-    </div>
+    <h3>Sobre o Nosso Projeto Educacional</h3>
+    <p>Este é um espaço dedicado ao aprendizado divertido através de jogos interativos.<br>
+    Nosso projeto visa oferecer uma experiência envolvente, estimulando o raciocínio e a criatividade de nossos jogadores.</p>
+    <p>Estamos comprometidos em criar um ambiente seguro e inspirador, onde a experimentação é encorajada
+    e o aprendizado acontece de forma natural e agradável.</p>
+    <p>Aqui você encontrará jogos como "Balé das Letras", uma aventura no mundo das palavras, e "Vamos Estudar", com desafios matemáticos envolventes, criados com a mágica da plataforma Scratch para complementar a jornada de aprendizado no Ensino Médio.</p>
+	<p>Explore os jogos e descubra novas formas de aprender!</p> 
+</div>
 
     <div class="texto-lateral" id="textoDireita">
-        <h3>Guia Rápido de Como Jogar</h3>
-        <p>Para começar, clique no botão do jogo desejado. Uma nova janela será aberta com a interface do jogo. Siga as instruções na tela, utilizando o mouse e o teclado para interagir.</p>
-        <p><strong>Balé das Letras:</strong> Clique na bandeira verde para iniciar. Use as setas ← e → para mover a Bailarina e pegar as vogais. Clique no círculo vermelho para parar.</p>
-        <p><strong>Vamos Estudar:</strong> Clique na bandeira verde e depois em "Iniciar Jogo". Responda às perguntas de Max com Kai: clique na caixa, digite o número e pressione Enter ou clique em "v". Use o círculo vermelho para parar.</p>
-        <p>Cada jogo apresenta desafios únicos com objetivos educativos. Divirta-se explorando e aprendendo! Se tiver dúvidas, volte aqui para mais informações.</p>
-    </div>
+    <h3>Guia Rápido de Como Jogar</h3>
+    <p>Para começar, clique no botão do jogo desejado. Uma nova janela será aberta com a interface do jogo. Siga as instruções na tela, utilizando o mouse e o teclado para interagir.</p>
+    <p><strong>Balé das Letras:</strong> Clique na bandeira verde para iniciar. Use as setas ← e → para mover a Bailarina e pegar as vogais. Clique no círculo vermelho para parar.</p>
+    <p><strong>Vamos Estudar:</strong> Clique na bandeira verde e depois em "Iniciar Jogo". Responda às perguntas de Max com Kai: clique na caixa, digite o número e pressione Enter ou clique em "v". Use o círculo vermelho para parar.</p>
+    <p>Cada jogo apresenta desafios únicos com objetivos educativos. Divirta-se explorando e aprendendo! Se tiver dúvidas, volte aqui para mais informações.</p>
+</div>
 
     <div class="mensagem-lateral esquerda-mensagem">Liberte o explorador dentro de você! Cada clique, cada interação é uma oportunidade de aprender algo novo enquanto se diverte. Descubra mundos fascinantes e veja o aprendizado de uma forma totalmente inovadora!</div>
 
     <div id="personagensLadoDireito">
         <img src="Bailarina.png" style="width: auto; height: 80px; margin-left: 5px;">
-        <img src="Menina_Max.png" style="width: auto; height: 80px; margin-left: 5px;">
-        <img src="Menino_Kai.png" style="width: auto; height: 80px; margin-left: 5px;">
+		<img src="Menina_Max.png" style="width: auto; height: 80px; margin-left: 5px;">
+        <img src="Menino_Kai.png" style="width: auto; height: 80px; margin-left: 5px;">     
     </div>
 
     <div class="container-inicial" id="containerInicial">
@@ -354,8 +235,8 @@
             <button class="jogo-button" id="jogarVamosEstudar">Vamos Estudar</button>
         </div>
     </div>
-
-    <video src="video_animate.mp4" autoplay loop muted class="video-central"></video>
+	
+	<video src="video_animate.mp4" autoplay loop muted class="video-central"></video>
 
     <div id="jogoContainer">
         <iframe id="jogoIframe"></iframe>
@@ -375,17 +256,17 @@
             containerInicial.style.marginTop = "-10px";
 
             // Esconde o vídeo central ao mostrar o jogo
-            const videoCentral = document.querySelector('.video-central');
-            if (videoCentral) {
-                videoCentral.style.display = 'none';
-            }
+        const videoCentral = document.querySelector('.video-central');
+        if (videoCentral) {
+            videoCentral.style.display = 'none';
+        }
         }
 
         jogarBaléBotao.addEventListener('click', () => mostrarJogo("https://scratch.mit.edu/projects/1161136708/embed"));
         jogarVamosEstudarBotao.addEventListener('click', () => mostrarJogo("https://scratch.mit.edu/projects/1168082464/embed"));
     });
 </script>
-    <footer>
+	<footer>
         <div class="footer-content">
             <p>&copy; 2025 Seu Projeto Educacional. Todos os direitos reservados.</p>
         </div>
