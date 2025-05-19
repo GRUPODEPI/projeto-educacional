@@ -1,275 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escolha seu Jogo!</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            background-color: #f0f8ff;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            background-image: url('pattern-dots-light.png'), url('background-desenho.png');
-            background-repeat: repeat, no-repeat;
-            background-position: top left, center center;
-            background-size: auto, cover;
-            padding: 40px;
-        }
-
-        .container-inicial {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 10px;
-            border-radius: 15px;
-            border: 4px solid #84dcc6;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            width: 550px;
-            transition: margin-top 0.5s ease;
-        }
-
-        h1 {
-            color: #ff6b6b;
-            font-size: 2.2em;
-            margin-bottom: 8px;
-            font-family: 'Comic Sans MS', cursive;
-        }
-
-        p {
-            font-size: 1em;
-            line-height: 1.4;
-            margin-bottom: 15px;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .jogo-button {
-            padding: 10px 20px;
-            background: linear-gradient(to bottom, #a7e9bb, #6dd5ed);
-            color: white;
-            border-radius: 8px;
-            font-size: 1.2em;
-            border: 2px solid #5bc0de;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .jogo-button:hover {
-            background-color: #53a9e6;
-        }
-
-        #jogoContainer {
-            margin-top: 20px;
-            text-align: center;
-            display: none;
-        }
-
-        iframe {
-            width: 800px;
-            height: 600px;
-            border: 0;
-        }
-
-        /* Estilos para .texto-lateral com a fonte Comic Sans MS */
-        .texto-lateral {
-            position: absolute;
-            top: 250px;
-            width: 400px;
-            height: 540px;
-            padding: 30px;
-            background-color: rgba(204, 229, 255, 0.8); /* Um azul bem claro e suave */
-            border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); /* Sombra suave */
-            display: flex;
-            flex-direction: column; /* Alterando para column para alinhar o título acima do texto */
-            align-items: center;
-            justify-content: flex-start; /* Alinhando o conteúdo ao topo */
-            text-align: center;
-            border: none; /* Removendo a borda sólida */
-        }
-
-        .texto-lateral h3 {
-            font-family: 'Comic Sans MS', cursive;
-            color: #337ab7; /* Um tom de azul para destacar o título */
-            font-size: 1.4em;
-            margin-top: 0; /* Removendo a margem padrão do h3 */
-            margin-bottom: 10px; /* Adicionando um espaço abaixo do título */
-            font-weight: bold;
-        }
-
-        .texto-lateral p {
-            font-family: 'Comic Sans MS', cursive; /* Fonte Comic Sans MS aplicada aqui */
-            color: #555;
-            font-size: 1.05em;
-            line-height: 1.5;
-            margin-bottom: 10px; /* Reduzindo um pouco a margem inferior */
-        }
-
-        #textoEsquerda {
-            left: 40px; /* Margem lateral igual à margem superior */
-        }
-
-        #textoDireita {
-            right: 40px; /* Margem lateral igual à margem superior */
-        }
-
-        .texto-lateral strong {
-            color: #333; /* Deixando o "strong" um pouco mais destacado */
-            font-weight: 600;
-        }
-
-        .mensagem-lateral {
-            position: absolute;
-            top: 20px; /* Ajuste a distância do topo conforme necessário */
-            font-family: 'Comic Sans MS', cursive;
-            font-size: 1.1em;
-            color: #555; /* Cor um pouco mais suave */
-            opacity: 0.7; /* Um pouco de transparência para não pesar */
-            pointer-events: none; /* Para não interferir com cliques */
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-            max-width: 350px; /* Defina uma largura máxima para a caixa de texto */
-        }
-
-        .esquerda-mensagem {
-            left: 95px; /* Alinhado com a caixa de texto lateral */
-            text-align: center;
-            width: auto; /* Permite que a largura se ajuste ao conteúdo até o max-width */
-            top: 60px; /* Aumentando o valor de top para descer o texto (ajuste conforme necessário) */
-            max-width: 350px; /* Aumentando um pouco a largura máxima (ajuste conforme necessário) */
-			opacity: 1; /* Define a opacidade para totalmente visível (sólida) */
-			color: #006400; /* Adiciona a cor azul */
-        }
-
-        #personagensLadoDireito {
-            position: absolute;
-            top: 40px;
-            right: 60px;
-            display: flex; /* Para alinhar as imagens lado a lado */
-            align-items: flex-end; /* Alinhar as imagens na parte inferior da div, se necessário */
-        }
-
-        #personagensLadoDireito img {
-            width: auto !important; /* A largura se ajustará proporcionalmente à altura */
-            height: 200px !important; /* Defina uma altura comum (ajuste este valor) */
-            margin-left: 10px !important;
-            margin-right: 0px !important;
-            margin-top: 0px !important;
-            margin-bottom: 0px !important;
-        }
-		
-		.video-central {
-        max-width: 600px; /* Ajuste conforme o tamanho desejado do vídeo */
-        height: auto;
-        display: block;
-        margin: 10px auto; /* Espaço acima e abaixo e centralização horizontal */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mundo Divertido</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-image: url('pattern-dots-light.png'), url('background-desenho.png');
+      background-repeat: repeat, no-repeat;
+      background-position: top left, center center;
+      background-size: auto, cover;
     }
-        #jogoContainer {
-            margin-top: 20px;
-            text-align: center;
-            display: none; /* Inicialmente escondido */
-        }
-		
-		footer {
-            background-color: #e0f0ff; /* Um cinza bem claro */
-            color: #ff1493; /* Um cinza um pouco mais escuro para o texto */
-            padding: 20px;
-            text-align: center;
-            font-size: 0.9em;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%; /* Garante que o rodapé ocupe toda a largura */
-            z-index: 100; /* Garante que o rodapé fique acima de outros elementos, se necessário */
-            border-top: 1px solid #eee; /* Uma linha sutil na parte superior */
-			height: 20px; /* Defina uma altura fixa menor (experimente valores) */
-			line-height: 20px; /* Centraliza verticalmente o texto dentro da altura definida */
-			display: flex;
-			justify-content: center; /* Centraliza horizontalmente o conteúdo (se houver mais de um item) */
-			align-items: center; /* Centraliza verticalmente o conteúdo */
-        }
-    </style>
-    </style>
+
+    #jogoContainer {
+      max-width: 100%;
+    }
+
+    #jogoIframe {
+      height: auto;
+      min-height: 600px; /* Ajuste este valor conforme necessário */
+    }
+  </style>
 </head>
-<body>
-    <div class="texto-lateral" id="textoEsquerda">
-    <h3>Sobre o Nosso Projeto Educacional</h3>
-    <p>Este é um espaço dedicado ao aprendizado divertido através de jogos interativos.<br>
-    Nosso projeto visa oferecer uma experiência envolvente, estimulando o raciocínio e a criatividade de nossos jogadores.</p>
-    <p>Estamos comprometidos em criar um ambiente seguro e inspirador, onde a experimentação é encorajada
-    e o aprendizado acontece de forma natural e agradável.</p>
-    <p>Aqui você encontrará jogos como "Balé das Letras", uma aventura no mundo das palavras, e "Vamos Estudar", com desafios matemáticos envolventes, criados com a mágica da plataforma Scratch para complementar a jornada de aprendizado no Ensino Médio.</p>
-	<p>Explore os jogos e descubra novas formas de aprender!</p> 
-</div>
-
-    <div class="texto-lateral" id="textoDireita">
-    <h3>Guia Rápido de Como Jogar</h3>
-    <p>Para começar, clique no botão do jogo desejado. Uma nova janela será aberta com a interface do jogo. Siga as instruções na tela, utilizando o mouse e o teclado para interagir.</p>
-    <p><strong>Balé das Letras:</strong> Clique na bandeira verde para iniciar. Use as setas ← e → para mover a Bailarina e pegar as vogais. Clique no círculo vermelho para parar.</p>
-    <p><strong>Vamos Estudar:</strong> Clique na bandeira verde e depois em "Iniciar Jogo". Responda às perguntas de Max com Kai: clique na caixa, digite o número e pressione Enter ou clique em "v". Use o círculo vermelho para parar.</p>
-    <p>Cada jogo apresenta desafios únicos com objetivos educativos. Divirta-se explorando e aprendendo! Se tiver dúvidas, volte aqui para mais informações.</p>
-</div>
-
-    <div class="mensagem-lateral esquerda-mensagem">Liberte o explorador dentro de você! Cada clique, cada interação é uma oportunidade de aprender algo novo enquanto se diverte. Descubra mundos fascinantes e veja o aprendizado de uma forma totalmente inovadora!</div>
-
-    <div id="personagensLadoDireito">
-        <img src="Bailarina.png" style="width: auto; height: 80px; margin-left: 5px;">
-		<img src="Menina_Max.png" style="width: auto; height: 80px; margin-left: 5px;">
-        <img src="Menino_Kai.png" style="width: auto; height: 80px; margin-left: 5px;">     
+<body class="min-h-screen bg-blue-50 text-gray-800 flex flex-col">
+  <header class="text-center p-6 bg-white bg-opacity-80 shadow">
+    <h1 class="text-3xl font-bold text-pink-600 font-comic-sans mb-2">Bem-vindo ao Mundo Divertido!</h1>
+    <p class="text-green-800 max-w-3xl mx-auto text-lg">
+      Liberte o explorador dentro de você! Cada clique, cada interação é uma oportunidade de aprender algo novo enquanto se diverte. Descubra mundos fascinantes e veja o aprendizado de uma forma totalmente inovadora!
+    </p>
+    <div class="flex justify-center gap-4 mt-4">
+      <img src="Bailarina.png" alt="Bailarina" class="h-20" />
+      <img src="Menina_Max.png" alt="Menina Max" class="h-20" />
+      <img src="Menino_Kai.png" alt="Menino Kai" class="h-20" />
     </div>
+  </header>
 
-    <div class="container-inicial" id="containerInicial">
-        <h1>Bem-vindo ao Mundo Divertido!</h1>
-        <p>Escolha um jogo e divirta-se!</p>
-        <div class="button-container">
-            <button class="jogo-button" id="jogarBalé">Balé das Letras</button>
-            <button class="jogo-button" id="jogarVamosEstudar">Vamos Estudar</button>
-        </div>
-    </div>
-	
-	<video src="video_animate.mp4" autoplay loop muted class="video-central"></video>
+  <main class="flex flex-col lg:flex-row justify-center items-stretch gap-6 px-4 py-10 max-w-screen-xl mx-auto w-full">
+    <aside class="bg-blue-100 bg-opacity-90 rounded-xl p-6 font-comic-sans w-full lg:w-1/4 shadow">
+      <h2 class="text-xl font-bold text-blue-700 mb-4">Sobre o Nosso Projeto Educacional</h2>
+      <p class="text-base text-gray-700 leading-relaxed">
+        Este é um espaço dedicado ao aprendizado divertido através de jogos interativos. Nosso projeto visa oferecer uma experiência envolvente, estimulando o raciocínio e a criatividade de nossos jogadores. Estamos comprometidos em criar um ambiente seguro e inspirador, onde a experimentação é encorajada e o aprendizado acontece de forma natural e agradável. Aqui você encontrará jogos como "Balé das Letras", uma aventura no mundo das palavras, e "Vamos Estudar", com desafios matemáticos criados com a mágica da plataforma Scratch. Explore e divirta-se!
+      </p>
+    </aside>
 
-    <div id="jogoContainer">
-        <iframe id="jogoIframe"></iframe>
-    </div>
+    <section class="flex-1 bg-white bg-opacity-90 rounded-xl p-6 text-center border-4 border-green-300 shadow">
+      <h2 class="text-2xl font-bold text-pink-500 font-comic-sans mb-2">Escolha um Jogo</h2>
+      <p class="mb-4">Clique em um dos jogos abaixo para começar sua jornada divertida:</p>
+      <div class="flex justify-center gap-4 flex-wrap mb-6">
+        <button class="bg-gradient-to-b from-green-200 to-blue-300 text-white px-5 py-2 rounded-lg text-lg border-2 border-blue-400 hover:bg-blue-400" id="jogarBalé">Balé das Letras</button>
+        <button class="bg-gradient-to-b from-green-200 to-blue-300 text-white px-5 py-2 rounded-lg text-lg border-2 border-blue-400 hover:bg-blue-400" id="jogarVamosEstudar">Vamos Estudar</button>
+      </div>
+      <video src="video_animate.mp4" autoplay loop muted class="mx-auto w-full max-w-2xl h-auto rounded-lg shadow"></video>
+      <div id="jogoContainer" class="mt-8 hidden w-full max-w-2xl mx-auto">
+        <iframe id="jogoIframe" class="w-full border-0 rounded-lg shadow"></iframe>
+      </div>
+    </section>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const jogarBaléBotao = document.getElementById('jogarBalé');
-        const jogarVamosEstudarBotao = document.getElementById('jogarVamosEstudar');
-        const jogoContainer = document.getElementById('jogoContainer');
-        const containerInicial = document.getElementById('containerInicial');
-        const jogoIframe = document.getElementById('jogoIframe');
-
-        function mostrarJogo(jogoURL) {
-            jogoIframe.src = jogoURL;
-            jogoContainer.style.display = 'block';
-            containerInicial.style.marginTop = "-10px";
-
-            // Esconde o vídeo central ao mostrar o jogo
-        const videoCentral = document.querySelector('.video-central');
-        if (videoCentral) {
-            videoCentral.style.display = 'none';
-        }
-        }
-
-        jogarBaléBotao.addEventListener('click', () => mostrarJogo("https://scratch.mit.edu/projects/1161136708/embed"));
-        jogarVamosEstudarBotao.addEventListener('click', () => mostrarJogo("https://scratch.mit.edu/projects/1168082464/embed"));
-    });
-</script>
-	<footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Seu Projeto Educacional. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    <aside class="bg-blue-100 bg-opacity-90 rounded-xl p-6 font-comic-sans w-full lg:w-1/4 shadow">
+      <h2 class="text-xl font-bold text-blue-700 mb-4">Guia Rápido de Como Jogar</h2>
+      <p class="text-base text-gray-700 leading-relaxed mb-2">
+        Para começar, clique no botão do jogo desejado. Siga as instruções na tela, utilizando o mouse e o teclado para interagir.
+      </p>
+      <p class="text-base text-gray-700 leading-relaxed mb-2">
+        <strong>Balé das Letras:</strong> Clique na bandeira verde para iniciar. Use as setas ← e → para mover a Bailarina e pegar as vogais. Clique no círculo vermelho para parar.
+      </p>
+      <p class="text-base text-gray-700 leading-relaxed">
+        <strong>Vamos Estudar:</strong> Clique na bandeira verde e depois em "Iniciar Jogo". Responda às perguntas com Kai: digite o número e pressione Enter ou clique em "v". Use o círculo vermelho para parar.
+      </p>
+    </aside>
+  </main>
 </body>
 </html>
