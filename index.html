@@ -70,5 +70,28 @@
       </p>
     </aside>
   </main>
+
+  <footer class="bg-blue-100 text-pink-500 text-center py-4 w-full border-t border-gray-200 text-sm">
+    <p>&copy; 2025 Projeto Educacional. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const jogarBaléBotao = document.getElementById('jogarBalé');
+      const jogarVamosEstudarBotao = document.getElementById('jogarVamosEstudar');
+      const jogoContainer = document.getElementById('jogoContainer');
+      const jogoIframe = document.getElementById('jogoIframe');
+      const video = document.querySelector('video');
+
+      function mostrarJogo(jogoURL) {
+        jogoIframe.src = jogoURL;
+        jogoContainer.classList.remove('hidden');
+        if (video) video.style.display = 'none';
+      }
+
+      jogarBaléBotao.addEventListener('click', () => mostrarJogo("https://scratch.mit.edu/projects/1161136708/embed"));
+      jogarVamosEstudarBotao.addEventListener('click', () => mostrarJogo("https://scratch.mit.edu/projects/1168082464/embed"));
+    });
+  </script>
 </body>
 </html>
